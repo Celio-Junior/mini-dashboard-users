@@ -1,1 +1,13 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+:root,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+}
+
+#root {
+  display: flex;
+}
