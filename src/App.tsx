@@ -1,5 +1,11 @@
+import Sidebar from './components/Sidebar';
+
 function App() {
-  return <h1>my dashboard</h1>;
+  return (
+    <>
+      <Sidebar />
+    </>
+  );
 }
 
 export default App;
