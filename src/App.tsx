@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
 import Sidebar from './components/Sidebar';
-import Main from './pages/Main';
+import MainPage from './pages/Main';
+import NotFoundPage from './pages/NotFound';
+import UserPage from './pages/User';
 
 function App() {
   return (
@@ -8,7 +10,9 @@ function App() {
       <BrowserRouter>
         <Sidebar />
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/user/:id" element={<UserPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </>

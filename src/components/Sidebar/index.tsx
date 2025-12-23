@@ -4,10 +4,9 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 
 export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   function handleIsOpenSidebar() {
     setIsOpen((prev) => !prev);
-    console.log(isOpen);
   }
 
   const classLink = clsx(
@@ -18,7 +17,7 @@ export default function Sidebar() {
   );
 
   const classNav = clsx(
-    'w-0 h-full bg-gray-700 p-0 relative transition-all duration-1000',
+    'w-0 h-screen bg-gray-700 p-0 relative transition-all duration-300',
     isOpen && 'w-65 p-5',
   );
 
@@ -52,7 +51,7 @@ export default function Sidebar() {
         title={isOpen ? 'Close sidebar' : 'Open sidebar'}
         onClick={handleIsOpenSidebar}
         className={clsx(
-          'absolute top-2 -right-13',
+          'absolute top-2 -right-11',
           'px-2 py-1 cursor-pointer transition hover:bg-gray-400 hover:text-gray-100 rounded-2xl',
         )}
         type="button"
