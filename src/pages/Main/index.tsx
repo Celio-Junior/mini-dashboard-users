@@ -1,36 +1,15 @@
 import { useEffect, useState } from 'react';
-import { urlApiUsers } from '../../lib/contantes';
+
 import UsersList from '../../components/Userslist';
 import type { UserType } from '../../interfaces/User';
 import Loading from '../../components/Loading';
 import { SearchIcon } from 'lucide-react';
+import { loadingUsers } from '../../database';
 
 export default function MainPage() {
   const [users, setUsers] = useState<UserType[]>([]);
   const [inputSearch, setInputSearch] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
-  async function loadingUsers() {
-    let result = localStorage.getItem('users');
-
-    if (!result) {
-      console.log('criado');
-      result = await (
-        await (await fetch(urlApiUsers)).json()
-      ).map(
-        (user: Omit<UserType, 'city'> & { address: { city: string } }): UserType => ({
-          id: Number(user.id),
-          name: user.name,
-          username: user.name,
-          city: user.address.city,
-          email: user.email,
-        }),
-      );
-      localStorage.setItem('users', JSON.stringify(result));
-    }
-    const usersApi = typeof result === 'string' ? JSON.parse(result as string) : result;
-    return usersApi as UserType[];
-  }
 
   useEffect(() => {
     (async () => {
