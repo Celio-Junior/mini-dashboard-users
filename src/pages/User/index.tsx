@@ -1,5 +1,3 @@
-import Loading from '../../components/Loading';
-
 export default function UserPage() {
-  return <Loading />;
+  return 'teste';
 }
